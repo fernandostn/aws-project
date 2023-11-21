@@ -1,7 +1,7 @@
-provider "aws" {
+/*provider "aws" {
   region  = "us-east-2"
-  version = "~> 2.0"
-}
+  #version = "~> 2.0"
+}*/
 
 terraform {
   backend "s3" {
@@ -11,6 +11,7 @@ terraform {
   }
 }
 module "aws-infra" {
-  source                  = "https://github.com/fernandostn/aws-terraform.git"
+  source                  = "git@github.com:fernandostn/aws-infra.git?ref=v0.1"
   name                    = "aws-infra"
+  environment = "dev"
 }
